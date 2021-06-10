@@ -1,0 +1,26 @@
+<%= notice %>
+<%= alert %>
+
+<section>
+  <h1>welcome to<strong>Bookers</strong>!!</h1>
+  <p>
+    In <strong>Bookers</strong>,<br>
+    <br>
+    you can share and exchange your opinions, inpressions, and emotions<br>
+    <br>
+    about various books!
+  </p>
+  
+  <% if !user_signed_in? %>
+    <button>
+      <%= link_to "Log in", user_path(current_user.id) %>
+    </button>
+  <% else %>
+    <button>
+      <%= link_to "Log in", new_user_session_path %>
+    </button>
+  <% end %>
+  <buttton>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </buttton>
+  

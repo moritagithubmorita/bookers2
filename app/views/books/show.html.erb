@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= render partial: 'users/new', locals: {user: @user} %>
+    </div>
+    <div class="col">
+      <h1>Book detail</h1>
+        <table>
+          <tr>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= attachment_image_tag @user :profile_image %><br>
+                <%= @user.name %>
+              <% end %>
+            </td>
+            <td><%= @user_book.title %></td>
+            <td><%= @user_book.body %></td>
+            <td><%= redirect_to "Edit", edit_book_path(@user_book.id) %></td>
+            <td><%= redirect_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
