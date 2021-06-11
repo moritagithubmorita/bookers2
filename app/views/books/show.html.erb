@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= render partial: 'users/new', locals: {user: @user} %>
+      <%= render partial: 'users/new', locals: { user: @user} %>
     </div>
     <div class="col">
       <h1>Book detail</h1>
         <table>
           <tr>
             <td>
-              <%= link_to user_path(@user.id) do %>
-                <%= attachment_image_tag @user :profile_image %><br>
-                <%= @user.name %>
+              <%= link_to user_path(current_user.id) do %>
+                <div>
+                  <%= attachment_image_tag current_user, :profile_image %><br>
+                  <%= current_user.name %>
+                </div>
               <% end %>
             </td>
-            <td><%= @user_book.title %></td>
-            <td><%= @user_book.body %></td>
-            <td><%= redirect_to "Edit", edit_book_path(@user_book.id) %></td>
-            <td><%= redirect_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+            <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+            <td><%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に消しますか?" %></td>
           </tr>
         </table>
       </div>

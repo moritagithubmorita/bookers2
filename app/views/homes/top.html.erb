@@ -1,5 +1,8 @@
-<%= notice %>
-<%= alert %>
+<div>
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: key %>
+  <% end %>
+</div>
 
 <section>
   <h1>welcome to<strong>Bookers</strong>!!</h1>
@@ -10,8 +13,8 @@
     <br>
     about various books!
   </p>
-  
-  <% if !user_signed_in? %>
+
+  <% if user_signed_in? %>
     <button>
       <%= link_to "Log in", user_path(current_user.id) %>
     </button>
@@ -23,4 +26,3 @@
   <buttton>
     <%= link_to "Sign up", new_user_registration_path %>
   </buttton>
-  
