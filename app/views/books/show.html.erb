@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <%= notice %>
+      <%= alert %>
       <%= render partial: 'users/new', locals: { user: @user} %>
     </div>
     <div class="col">
@@ -18,7 +20,7 @@
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
             <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-            <td><%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+            <td><%= link_to "Destroy", "/books/#{@book.id}", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
           </tr>
         </table>
       </div>

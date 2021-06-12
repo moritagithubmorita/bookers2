@@ -1,5 +1,9 @@
 <section>
   <section>
+    <%= render partial: 'users/error', locals: { book: @e_book} %>
+  </section>
+
+  <section>
     <h1>User info</h1>
     <%= attachment_image_tag user, :profile_image %>
     <table>
@@ -12,8 +16,9 @@
         <td><%= user.introduction %></td>
       </tr>
     </table>
-    <button>
-    </button>
+    <%= link_to edit_user_path(user.id) do %>
+      <p>仮</p>
+    <% end %>
   </section>
 
   <section>

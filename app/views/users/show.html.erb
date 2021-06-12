@@ -1,12 +1,14 @@
-<div>
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: key %>
-  <% end %>
-</div>
+<%#<div> %>
+  <%# flash.each do |key, value| %>
+    <%#= content_tag :div, value, class: key %>
+  <%# end %>
+<%#</div>%>
 
 <div class="container">
   <div class="row">
     <div class="col">
+      <%= notice %>
+      <%= alert %>
       <%= render partial: 'users/new', locals: { user: @user} %>
       </div>
     <div class="col">
@@ -19,8 +21,8 @@
           </tr>
           <% @user.books.each do |book| %>
           <tr>
-            <td><%= attachment_image_tag @user, :profile_image %></td>
-            <td><%= book.title %></td>
+            <td><%= link_to "/users/#{@user.id}" do %><%= attachment_image_tag @user, :profile_image %><% end %></td>
+            <td><%= link_to book.title, "/books/#{book.id}" %></td>
             <td><%= book.body %></td>
           </tr>
           <% end %>
