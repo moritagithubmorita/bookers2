@@ -22,11 +22,11 @@
           <ul class="navbar-nav ml-auto">
             <% if !user_signed_in? %>
               <li><a class="my-1 nav-link text-light fas fa-home" href='/'> Home</a></li>
-              <li><a class="my-1 nav-link text-light fas fa-link" href='/homes/about'> About</a></li>
+              <li><a class="my-1 nav-link text-light fas fa-link" href='/home/about'> About</a></li>
               <li><a class="my-1 nav-link text-light fas fa-user-plus" href='/users/sign_up'> sign up</a></li>
               <li><a class="my-1 nav-link text-light fas fa-sign-in-alt" href='/users/sign_in'> login</a></li>
             <% else %>
-              <li><a class="my-1 nav-link text-light fas fa-home" href='/'> Home</a></li>
+              <li><%= link_to " Home", user_path(current_user.id), class:"my-1 nav-link text-light fas fa-home" %></li>
               <li><a class="my-1 nav-link text-light fas fa-users" href= '/users'> Users</a></li>
               <li><a class="my-1 nav-link text-light fas fa-book-open" href='/books'> Books</a></li>
               <li><%= link_to ' logout', '/users/sign_out', method: :delete, class:"nav-link text-light fas fa-sign-out-alt my-1" %></li>

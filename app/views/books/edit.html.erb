@@ -3,6 +3,9 @@
     <div class="mt-3 col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <section>
         <h1>Editing Book</h1>
+        <% if @book.errors.any? %>
+          <%= render partial: 'users/error', locals: {book: @book} %>
+        <% end %>
         <%= form_with model:@book, local:true do |f| %>
           <div class="form-group">
           <label>Title</label>
